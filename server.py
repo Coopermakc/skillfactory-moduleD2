@@ -30,6 +30,7 @@ def success():
 
 @route("/fail")
 def fail():
+    raise RuntimeError('This is run time error')
     return HTTPResponse(status=500, body='Here error with code 500')
 
 
