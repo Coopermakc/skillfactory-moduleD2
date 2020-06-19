@@ -28,6 +28,11 @@ def success():
         """
     return HTTPResponse(status=200, body=html)
 
+@route('/')
+def index():
+    return "Для проверки задания добавьте в адресной строке /success  для успешной страницы и /fail для страницы с ошибкой"
+
+
 @route("/fail")
 def fail():
     raise RuntimeError('This is run time error')
