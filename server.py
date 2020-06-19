@@ -1,3 +1,9 @@
+"""
+При разворачивании задания на Хероку необходимо добавить переменную "APP_LOCATION" со значением "heroku"
+Например, так
+ $ heroku config:set APP_LOCATION=heroku
+"""
+
 import sentry_sdk
 from bottle import route, HTTPResponse, run
 from sentry_sdk.integrations.bottle import BottleIntegration
@@ -5,7 +11,7 @@ from sentry_sdk.integrations.bottle import BottleIntegration
 import os
 
 sentry_sdk.init(
-    dsn="https://e59da7e3bd844d42b45a14a590f19461@o409683.ingest.sentry.io/5282734",
+    dsn="https://<key>.ingest.sentry.io/<project>",  #вместо <key>  и <project>  укажите ваши данные из sentry
     integrations=[BottleIntegration()]
     )
 
@@ -30,7 +36,7 @@ def success():
 
 @route('/')
 def index():
-    return "Для проверки задания добавьте в адресной строке /success  для успешной страницы и /fail для страницы с ошибкой"
+    return "Для проверки задания добавьте в адресной строке /success  для успешной страницы, а /fail для страницы с ошибкой"
 
 
 @route("/fail")
