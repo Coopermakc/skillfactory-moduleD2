@@ -16,7 +16,7 @@ def success():
         <!doctype html>
         <html lang="en">
         <head>
-            <title>Генератор утверждений</title>
+            <title>Check logs</title>
         </head>
         <body>
             <div class="container">
